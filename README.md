@@ -29,14 +29,11 @@ Clone the repo and follow the instructions.  You can view each step by running t
 
 ### Installing
 
-Run these commands in the terminal:
-
-```
-cd mern_app
-npm install
-npm run dev
-```
 
 
-https://github.com/bmallesh/mern_app
+
+
+https://github.com/akshansr/ekart_ui
+
+https://github.com/akshansr/ekartt
 "# mern_app" 
