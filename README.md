@@ -35,5 +35,5 @@ Clone the repo and follow the instructions.  You can view each step by running t
 
 https://github.com/akshansr/ekart_ui
 
-https://github.com/akshansr/ekartt
+https://github.com/akshansr/node_app
 "# mern_app" 
