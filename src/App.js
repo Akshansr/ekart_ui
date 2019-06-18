@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import { Route} from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 // components
 import Signup from './components/sign-up'
@@ -24,10 +24,10 @@ class App extends Component {
     this.state = {
       loggedIn: false,
       username: null,
-      render:false,
-      firstname:null,
-      lastname:null,
-      mobileNo:null,
+      render: false,
+      firstname: null,
+      lastname: null,
+      mobileNo: null,
       gender: '',
     }
 
@@ -41,31 +41,31 @@ class App extends Component {
     this.getUser()
   }
 
-  updateUser (userObject) {
+  updateUser(userObject) {
     this.setState(userObject);
     this.getUser();
   }
-  getUserInfo(){
-    axios.post("/home/getUserInfo",{username:this.state.username}).then(userInfoResponse=>{
+  getUserInfo() {
+    axios.post("https://ekartt.herokuapp.com/home/getUserInfo", { username: this.state.username }).then(userInfoResponse => {
       console.log(userInfoResponse)
-      if(userInfoResponse.data.length != 0){
+      if (userInfoResponse.data.length != 0) {
         this.setState({
-          firstname:userInfoResponse.data[0].firstname,
-          lastname:userInfoResponse.data[0].lastname,
-          mobileNo:userInfoResponse.data[0].mobileNo,
-          gender:userInfoResponse.data[0].gender,
-          render:true
+          firstname: userInfoResponse.data[0].firstname,
+          lastname: userInfoResponse.data[0].lastname,
+          mobileNo: userInfoResponse.data[0].mobileNo,
+          gender: userInfoResponse.data[0].gender,
+          render: true
         })
-      }else{
+      } else {
         this.setState({
-          render:true
+          render: true
         })
       }
     })
   }
 
   getUser() {
-    axios.get('/app/api/getUserDetails').then(response => {
+    axios.get('https://ekartt.herokuapp.com/app/api/getUserDetails').then(response => {
       console.log('Get user response: ')
       console.log(response)
       if (response.data.user) {
@@ -74,20 +74,20 @@ class App extends Component {
         this.setState({
           loggedIn: true,
           username: response.data.user.username,
-        },()=>this.getUserInfo())
+        }, () => this.getUserInfo())
       } else {
         console.log('Get user: no user');
         this.setState({
           loggedIn: false,
           username: null,
-          render:true
+          render: true
         })
       }
     })
   }
 
   render() {
-    if(this.state.render){
+    if (this.state.render) {
       return (
         <div className="App">
           <Navbar updateUser={this.updateUser} userdata={this.state} />
@@ -99,7 +99,7 @@ class App extends Component {
           <Route
             exact path="/"
             render={() =>
-            <Home/>} />
+              <Home />} />
           <Route
             path="/login"
             render={() =>
@@ -110,7 +110,7 @@ class App extends Component {
           <Route
             path="/signup"
             render={() =>
-              <Signup/>}
+              <Signup />}
           />
           <Route
             exact path="/forgot"
@@ -120,7 +120,7 @@ class App extends Component {
             component={resetPassword} />
           <Route
             exact path="/ProductView"
-            component={ProductView} /> 
+            component={ProductView} />
           <Route
             exact path="/cart"
             component={Cart} />
@@ -133,14 +133,14 @@ class App extends Component {
                 return <LoginForm updateUser={this.updateUser} />
               }
             }}/> */}
-            <Route
+          <Route
             path="/myProfile"
             component={MyProfile} />
 
         </div>
       );
-    }else{
-      return(<div className='App'>
+    } else {
+      return (<div className='App'>
         <Loder />
       </div>
       );

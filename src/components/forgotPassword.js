@@ -50,7 +50,7 @@ class forgot extends Component {
 
         if (isValid) {
             axios
-                .post('/app/api/forgot', {
+                .post('https://ekartt.herokuapp.com/app/api/forgot', {
                     username: this.state.username,
                 })
                 .then(response => {
@@ -62,7 +62,7 @@ class forgot extends Component {
                             color: 'warning',
                         })
                         setTimeout(
-                             ()=>{
+                            () => {
                                 this.setState({ redirectTo: '/login' });
                             },
                             6000

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Redirect} from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 // import Navbar from './navbar'
 
 import {
-     Container, Row, Col, FormGroup, Input
-   } from 'reactstrap';
+    Container, Row, Col, FormGroup, Input
+} from 'reactstrap';
 
 class resetPassword extends Component {
     constructor() {
@@ -62,7 +62,7 @@ class resetPassword extends Component {
         const isValid = this.passwordValidate()
         if (isValid) {
             axios
-                .post('/app/api/reset', {
+                .post('https://ekartt.herokuapp.com/app/api/reset', {
                     newpassword: this.state.newpassword,
                     uid: this.state.uid
                 })
@@ -118,13 +118,13 @@ class resetPassword extends Component {
                                     <div style={{ fontSize: 12, color: "red" }}>{this.state.newpasswordError}</div>
                                     <FormGroup className="mx-4">
                                         <Input
-                                        className="form-input"
-                                        type="password"
-                                        id="retypepassword"
-                                        name="retypepassword"
-                                        placeholder="Retype password"
-                                        value={this.state.retypepassword}
-                                        onChange={this.handleChange}
+                                            className="form-input"
+                                            type="password"
+                                            id="retypepassword"
+                                            name="retypepassword"
+                                            placeholder="Retype password"
+                                            value={this.state.retypepassword}
+                                            onChange={this.handleChange}
                                         />
                                     </FormGroup>
                                     <div style={{ fontSize: 12, color: "red" }}>{this.state.retypepasswordError}</div>
