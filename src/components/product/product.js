@@ -44,8 +44,7 @@ class Product extends Component {
         <div className='carddiv'>
           <div className=''>
             <div className='row'>
-              <div className='col-lg-2'></div>
-              <div className='col-md-12 col-lg-8'>
+              <div className='col-md-12'>
                 <CardColumns className='ml-2 mr-2'>
                   {this.state.product.map((value, index) => {
                     return (

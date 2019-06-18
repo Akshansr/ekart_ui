@@ -28,7 +28,6 @@ class App extends Component {
       firstname: null,
       lastname: null,
       mobileNo: null,
-      gender: '',
     }
 
     this.getUser = this.getUser.bind(this)
@@ -42,8 +41,7 @@ class App extends Component {
   }
 
   updateUser(userObject) {
-    this.setState(userObject);
-    this.getUser();
+    this.setState(userObject, () => this.getUserInfo())
   }
   getUserInfo() {
     axios.post("https://ekartt.herokuapp.com/home/getUserInfo", { username: this.state.username }).then(userInfoResponse => {
@@ -53,7 +51,6 @@ class App extends Component {
           firstname: userInfoResponse.data[0].firstname,
           lastname: userInfoResponse.data[0].lastname,
           mobileNo: userInfoResponse.data[0].mobileNo,
-          gender: userInfoResponse.data[0].gender,
           render: true
         })
       } else {

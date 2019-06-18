@@ -18,35 +18,18 @@ class Navbar extends Component {
         }
         this.logout = this.logout.bind(this)
         // this.props.Nameset("cognizant")
-        console.log(this.props.user)
-
+        console.log(this.props.user.name)
 
     }
 
     componentDidMount() {
         setTimeout(() => {
-            // console.log(this.props.userdata.loggedIn);
+            console.log(this.props.userdata.loggedIn);
             this.props.userInfoStore(this.props.userdata);
-            // console.log(this.props.user)
-        }, 3000, )
-    }
-    componentDidUpdate(prevProps, prevState) {
-        console.log(prevProps);
-        console.log(this.props);
-
-        // this.props.userInfoStore(this.props.userdata);
+        }, 3000)
 
     }
 
-    // componentWillReceiveProps(newProps) {    
-    //     console.log(newProps,'newprops')
-    //     if(newProps.user.username != newProps.userdata.username){
-    //         console.log(newProps.user.username,'newprops')
-    //         console.log(newProps.userdata.username,'newprops')
-    //         this.props.userInfoStore(this.props.userdata);
-    //     }
-
-    //  }
     logout(event) {
         event.preventDefault()
         // console.log('logging out')
@@ -70,12 +53,9 @@ class Navbar extends Component {
         const loggedIn = this.props.userdata.loggedIn;
         const username = this.props.userdata.firstname + " " + this.props.userdata.lastname;
         // console.log(this.props.userdata)
+
         // console.log(this.props.user.name)
         // console.log(this.props);
-        // if(this.props.userdata.loggedIn){
-        //     this.props.userInfoStore(this.props.userdata);
-        // }
-
         if (this.state.redirectTo) {
             return <Redirect to={{ pathname: this.state.redirectTo }} />
         } else {

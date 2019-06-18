@@ -62,8 +62,8 @@ class Cart extends Component {
             // </table>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-md-1 col-lg-3"></div>
-                    <div className="col-md-10 col-lg-6">
+                    <div className="col-md-1"></div>
+                    <div className="col-md-10">
                     <table className="table table-hover  mt-4">
                     <thead>
                         <tr>

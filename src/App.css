@@ -12,7 +12,7 @@
 .App {
     text-align: center;
     background-color: #0c1e42;
-    height: auto;
+    height: fit-content;
     min-height: 100%;
     /* font-family: proxima-nova,helvetica neue,Helvetica,Arial,sans-serif; */
     top: 0;

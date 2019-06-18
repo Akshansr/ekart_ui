@@ -139,8 +139,8 @@ class ProductView extends Component {
 					{/* <Navbar /> */}
 					<div className="container-fluid">
 						<div className="row productViewcard">
-							<div className="col-sm-0 col-lg-3"></div>
-							<div className="col-sm-12 col-lg-6">
+							<div className="col-sm-0 col-lg-2"></div>
+							<div className="col-sm-12 col-lg-8">
 								<div className="card text-center mt-2">
 									<div className="card-header" style={{ paddingBottom: ".8rem" }}>
 										{this.state.productdata.name}
